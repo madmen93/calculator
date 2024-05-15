@@ -79,9 +79,6 @@ button:active {
     gap: 10px;
 }
 
-.operator {
-}
-
 .number {
     background-color: var(--lemon);
 }
