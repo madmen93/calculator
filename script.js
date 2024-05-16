@@ -15,13 +15,15 @@ const point = document.querySelector("#decimal");
 let firstNum;
 let operator;
 let secondNum;
-let cont = 0;
 let countDecimal = 0;
 
 //Display first number:
 function display(event){
-    cont++;
-    if(cont <= 13){
+    if(print.textContent == "0"  && event.target.id != "decimal"){
+        print.textContent = "";
+    }
+
+    if(print.textContent.length <= 13){
         switch (event.target.id) {
             case "one":
                 print.textContent += 1;
@@ -51,20 +53,20 @@ function display(event){
                 print.textContent += 9;
                 break;
             case "cero":
-                print.textContent += 0;
+                if(print.textContent != "0"){
+                    print.textContent += 0;
+                }
                 break;
             case "decimal":
                 if(countDecimal < 1){
                     print.textContent += ".";
                     countDecimal++;
-                }else{
-                    break;
                 }
+                break;
             default:
                 break;
         }
         firstNum = Number(print.textContent);
-        console.log(firstNum);
     }
     return firstNum;
 }
