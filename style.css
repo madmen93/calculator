@@ -45,6 +45,7 @@ main {
     background-color: #bdbdbd;
     border: solid black 1px;
     margin: 5px;
+    height: 63px;
     text-align: end;
 }
 
