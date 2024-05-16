@@ -9,17 +9,17 @@ const numSeven = document.querySelector("#seven");
 const numEight = document.querySelector("#eight");
 const numNine = document.querySelector("#nine");
 const numCero = document.querySelector("#cero");
+const point = document.querySelector("#decimal");
 
 
 let firstNum;
 let operator;
 let secondNum;
 let cont = 0;
+let countDecimal = 0;
 
+//Display first number:
 function display(event){
-    //print.textContent = "";
-    console.log(event.target);
-    console.log(event.target.id);
     cont++;
     if(cont <= 13){
         switch (event.target.id) {
@@ -53,18 +53,23 @@ function display(event){
             case "cero":
                 print.textContent += 0;
                 break;
+            case "decimal":
+                if(countDecimal < 1){
+                    print.textContent += ".";
+                    countDecimal++;
+                }else{
+                    break;
+                }
             default:
                 break;
         }
         firstNum = Number(print.textContent);
         console.log(firstNum);
     }
-    
-    
-    
+    return firstNum;
 }
 
-//numOne.addEventListener("click", pressNumOne);
+
 numOne.addEventListener("click", display);
 numTwo.addEventListener("click", display);
 numThree.addEventListener("click", display);
@@ -75,3 +80,4 @@ numSeven.addEventListener("click", display);
 numEight.addEventListener("click", display);
 numNine.addEventListener("click", display);
 numCero.addEventListener("click", display);
+point.addEventListener("click", display);
