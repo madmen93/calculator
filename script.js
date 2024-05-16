@@ -10,6 +10,11 @@ const numEight = document.querySelector("#eight");
 const numNine = document.querySelector("#nine");
 const numCero = document.querySelector("#cero");
 const point = document.querySelector("#decimal");
+const result = document.querySelector("#result");
+const sum = document.querySelector("#sum");
+const sub = document.querySelector("#substraction");
+const multiply = document.querySelector("#multiplication");
+const divide = document.querySelector("#divide");
 
 
 let firstNum;
@@ -71,6 +76,9 @@ function display(event){
     return firstNum;
 }
 
+function operate(){
+
+}
 
 numOne.addEventListener("click", display);
 numTwo.addEventListener("click", display);
@@ -83,3 +91,8 @@ numEight.addEventListener("click", display);
 numNine.addEventListener("click", display);
 numCero.addEventListener("click", display);
 point.addEventListener("click", display);
+sum.addEventListener("click", operate);
+sub.addEventListener("click", operate);
+multiply.addEventListener("click", operate);
+divide.addEventListener("click", operate);
+result.addEventListener("click", operate);
