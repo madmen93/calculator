@@ -175,6 +175,9 @@ function operate(event){
             case "multiplication":
                 operator = "multiplication";
                 break;
+            case "divide":
+                operator = "divide";
+                break;
             case "result":
                 switch (operator) {
                     case "sum":
@@ -187,6 +190,10 @@ function operate(event){
                         break;
                     case "multiplication":
                         answer = mult();
+                        print.textContent = answer;
+                        break;
+                    case "divide":
+                        answer = division();
                         print.textContent = answer;
                         break;
                     default:
@@ -208,6 +215,9 @@ function subtract(){
 }
 function mult(){
     return firstNum * secondNum;
+}
+function division(){
+    return firstNum / secondNum;
 }
 
 numOne.addEventListener("click", operate);
