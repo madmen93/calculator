@@ -23,124 +23,145 @@ let secondNum;
 let answer;
 let countDecimal = 0;
 let countDecimalSecond = 0;
+let newNumber = true;
 
 //Display first number:
 function operate(event){
     if(print.textContent == "0"  && event.target.id != "decimal"){
         print.textContent = "";
     }
-
-    if(print.textContent.length <= 13){
-        switch (event.target.id) {
+    switch (event.target.id) {
             case "one":
-                if(operator == undefined)
+                if(print.textContent.length < 12 && operator == undefined){
                     print.textContent += 1;
-                else if(operator != undefined && countDecimalSecond < 1){
+                }
+                if(operator != undefined && newNumber){
                     print.textContent = "";
                     print.textContent += 1;
-                }else{
+                    newNumber = false;
+                }else if(!newNumber && print.textContent.length < 12){
                     print.textContent += 1;
                 }
                 break;
             case "two":
-                if(operator == undefined)
+                if(print.textContent.length < 12 && operator == undefined){
                     print.textContent += 2;
-                else if(operator != undefined && countDecimalSecond < 1){
+                }
+                if(operator != undefined && newNumber){
                     print.textContent = "";
                     print.textContent += 2;
-                }else{
+                    newNumber = false;
+                }else if(!newNumber && print.textContent.length < 12){
                     print.textContent += 2;
                 }
                 break;
             case "three":
-                if(operator == undefined)
+                if(print.textContent.length < 12 && operator == undefined){
                     print.textContent += 3;
-                else if(operator != undefined && countDecimalSecond < 1){
+                }
+                if(operator != undefined && newNumber){
                     print.textContent = "";
                     print.textContent += 3;
-                }else{
+                    newNumber = false;
+                }else if(!newNumber && print.textContent.length < 12){
                     print.textContent += 3;
                 }
                 break;
             case "four":
-                if(operator == undefined)
+                if(print.textContent.length < 12 && operator == undefined){
                     print.textContent += 4;
-                else if(operator != undefined && countDecimalSecond < 1){
+                }
+                if(operator != undefined && newNumber){
                     print.textContent = "";
                     print.textContent += 4;
-                }else{
+                    newNumber = false;
+                }else if(!newNumber && print.textContent.length < 12){
                     print.textContent += 4;
                 }
                 break;
             case "five":
-                if(operator == undefined)
+                if(print.textContent.length < 12 && operator == undefined){
                     print.textContent += 5;
-                else if(operator != undefined && countDecimalSecond < 1){
+                }
+                if(operator != undefined && newNumber){
                     print.textContent = "";
                     print.textContent += 5;
-                }else{
+                    newNumber = false;
+                }else if(!newNumber && print.textContent.length < 12){
                     print.textContent += 5;
                 }
                 break;
             case "six":
-                if(operator == undefined)
+                if(print.textContent.length < 12 && operator == undefined){
                     print.textContent += 6;
-                else if(operator != undefined && countDecimalSecond < 1){
+                }
+                if(operator != undefined && newNumber){
                     print.textContent = "";
                     print.textContent += 6;
-                }else{
+                    newNumber = false;
+                }else if(!newNumber && print.textContent.length < 12){
                     print.textContent += 6;
                 }
                 break;
             case "seven":
-                if(operator == undefined)
+                if(print.textContent.length < 12 && operator == undefined){
                     print.textContent += 7;
-                else if(operator != undefined && countDecimalSecond < 1){
+                }
+                if(operator != undefined && newNumber){
                     print.textContent = "";
                     print.textContent += 7;
-                }else{
+                    newNumber = false;
+                }else if(!newNumber && print.textContent.length < 12){
                     print.textContent += 7;
                 }
                 break;
             case "eight":
-                if(operator == undefined)
+                if(print.textContent.length < 12 && operator == undefined){
                     print.textContent += 8;
-                else if(operator != undefined && countDecimalSecond < 1){
+                }
+                if(operator != undefined && newNumber){
                     print.textContent = "";
                     print.textContent += 8;
-                }else{
+                    newNumber = false;
+                }else if(!newNumber && print.textContent.length < 12){
                     print.textContent += 8;
                 }
                 break;
             case "nine":
-                if(operator == undefined)
+                if(print.textContent.length < 12 && operator == undefined){
                     print.textContent += 9;
-                else if(operator != undefined && countDecimalSecond < 1){
+                }
+                if(operator != undefined && newNumber){
                     print.textContent = "";
                     print.textContent += 9;
-                }else{
+                    newNumber = false;
+                }else if(!newNumber && print.textContent.length < 12){
                     print.textContent += 9;
                 }
                 break;
             case "cero":
-                if(print.textContent != "0" && operator == undefined){
+                if(print.textContent.length < 12 && operator == undefined){
                     print.textContent += 0;
-                }else if(operator != undefined && countDecimalSecond < 1){
+                }
+                if(operator != undefined && newNumber){
                     print.textContent = "";
                     print.textContent += 0;
-                }else{
+                    newNumber = false;
+                }else if(!newNumber && print.textContent.length < 12){
                     print.textContent += 0;
                 }
                 break;
             case "decimal":
-                if(countDecimal < 1 && operator == undefined){
+                if(print.textContent.length < 12 && countDecimal == 0 && operator == undefined){
                     print.textContent += ".";
                     countDecimal++;
-                }else if(countDecimalSecond < 1 && operator != undefined && secondNum == undefined ){
+                }else if(operator != undefined && newNumber){
                     print.textContent = "";
                     print.textContent += "0.";
+                    newNumber = false;
                     countDecimalSecond++;
-                }else if(countDecimalSecond < 1 && operator != undefined && secondNum != undefined ){
+                }
+                if(print.textContent.length < 12 && countDecimalSecond == 0 && operator != undefined){
                     print.textContent += ".";
                     countDecimalSecond++;
                 }
@@ -154,7 +175,6 @@ function operate(event){
                         answer = add();
                         print.textContent = answer;
                         break;
-                
                     default:
                         break;
                 }
@@ -166,8 +186,6 @@ function operate(event){
         else
             secondNum = Number(print.textContent);
     }
-}
-
 function add(){
     return firstNum + secondNum;
 }
