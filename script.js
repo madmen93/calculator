@@ -172,6 +172,9 @@ function operate(event){
             case "substraction":
                 operator = "substraction";
                 break;
+            case "multiplication":
+                operator = "multiplication";
+                break;
             case "result":
                 switch (operator) {
                     case "sum":
@@ -180,6 +183,10 @@ function operate(event){
                         break;
                     case "substraction":
                         answer = subtract();
+                        print.textContent = answer;
+                        break;
+                    case "multiplication":
+                        answer = mult();
                         print.textContent = answer;
                         break;
                     default:
@@ -198,6 +205,9 @@ function add(){
 }
 function subtract(){
     return firstNum - secondNum;
+}
+function mult(){
+    return firstNum * secondNum;
 }
 
 numOne.addEventListener("click", operate);
