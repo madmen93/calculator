@@ -189,12 +189,7 @@ function operate(event){
                 }
                 operator = "sum";
                 newNumber = true;
-                /*countDecimalSecond = 0;
-                if(countOperator >= 1){
-                    answer = add();
-                    print.textContent = answer;
-                    firstNum = answer;
-                }*/
+                countDecimalSecond = 0;
                 countOperator++;
                 break;
             case "substraction":
@@ -220,11 +215,6 @@ function operate(event){
                 operator = "substraction";
                 newNumber = true;
                 countDecimalSecond = 0;
-                /*if(countOperator >= 1){
-                    answer = subtract();
-                    print.textContent = answer;
-                    firstNum = answer;
-                }*/
                 countOperator++;
                 break;
             case "multiplication":
@@ -250,11 +240,6 @@ function operate(event){
                 operator = "multiplication";
                 newNumber = true;
                 countDecimalSecond = 0;
-                /*if(countOperator >= 1){
-                    answer = mult();
-                    print.textContent = answer;
-                    firstNum = answer;
-                }*/
                 countOperator++;
                 break;
             case "divide":
@@ -280,50 +265,31 @@ function operate(event){
                 operator = "divide";
                 newNumber = true;
                 countDecimalSecond = 0;
-                /*if(countOperator >= 1){
-                    answer = division();
-                    print.textContent = answer;
-                    firstNum = answer;
-                }*/
                 countOperator++;
                 break;
             case "result":
                 switch (operator) {
                     case "sum":
                         answer = add();
-                        print.textContent = answer;
-                        firstNum = answer;
-                        newNumber = true;
-                        countOperator = 0;
-                        countDecimalSecond = 0;
                         break;
                     case "substraction":
                         answer = subtract();
-                        print.textContent = answer;
-                        firstNum = answer;
-                        newNumber = true;
-                        countOperator = 0;
-                        countDecimalSecond = 0;
                         break;
                     case "multiplication":
                         answer = mult();
-                        print.textContent = answer;
-                        firstNum = answer;
-                        newNumber = true;
-                        countOperator = 0;
-                        countDecimalSecond = 0;
                         break;
                     case "divide":
                         answer = division();
-                        print.textContent = answer;
-                        firstNum = answer;
-                        newNumber = true;
-                        countOperator = 0;
-                        countDecimalSecond = 0;
                         break;
                     default:
                         break;
                 }
+                print.textContent = answer;
+                firstNum = answer;
+                newNumber = true;
+                countOperator = 0;
+                countDecimalSecond = 0;
+                break;
             default:
                 break;
         }
