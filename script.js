@@ -16,7 +16,7 @@ const sub = document.querySelector("#substraction");
 const multiply = document.querySelector("#multiplication");
 const divide = document.querySelector("#divide");
 const percent = document.querySelector("#percentage");
-
+const sumSubtraction = document.querySelector("#sumSus");
 
 let firstNum = 0;
 let operator;
@@ -29,7 +29,7 @@ let countOperator = 0;
 let percentOne = false;
 let percentTwo = false;
 
-//Display first number:
+//Display numbers and math operations:
 function operate(event){
     if(print.textContent == "0"  && event.target.id != "decimal"){
         print.textContent = "";
@@ -331,6 +331,14 @@ function operate(event){
                 countDecimal++;
                 countDecimalSecond++;
                 break;
+            case "sumSus":
+                if(countOperator >= 1){
+                    answer = sumSubSecond();
+                }else{
+                    answer = sumSubFirst();
+                }
+                print.textContent = answer;
+                break;
             case "result":
                 switch (operator) {
                     case "sum":
@@ -383,6 +391,12 @@ function percentageSecondNum(){
 function percentageSum(){
     return firstNum * secondNum / 100;
 }
+function sumSubFirst(){
+    return firstNum * (-1);
+}
+function sumSubSecond(){
+    return secondNum * (-1);
+}
 
 numOne.addEventListener("click", operate);
 numTwo.addEventListener("click", operate);
@@ -401,3 +415,4 @@ multiply.addEventListener("click", operate);
 divide.addEventListener("click", operate);
 result.addEventListener("click", operate);
 percent.addEventListener("click", operate);
+sumSubtraction.addEventListener("click",operate);
