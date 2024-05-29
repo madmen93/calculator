@@ -15,6 +15,7 @@ const sum = document.querySelector("#sum");
 const sub = document.querySelector("#substraction");
 const multiply = document.querySelector("#multiplication");
 const divide = document.querySelector("#divide");
+const percent = document.querySelector("#percentage");
 
 
 let firstNum = 0;
@@ -25,6 +26,8 @@ let countDecimal = 0;
 let countDecimalSecond = 0;
 let newNumber = true;
 let countOperator = 0;
+let percentOne = false;
+let percentTwo = false;
 
 //Display first number:
 function operate(event){
@@ -33,8 +36,11 @@ function operate(event){
     }
     switch (event.target.id) {
             case "one":
-                    if(print.textContent.length < 12 && operator == undefined){
+                    if(print.textContent.length < 12 && operator == undefined && percentOne == false){
                         print.textContent += 1;
+                    }else if(percentOne && operator == undefined){
+                    print.textContent += 1;
+                    answer = Number(print.textContent);
                     }
                     if(operator != undefined && newNumber){
                         print.textContent = "";
@@ -45,8 +51,11 @@ function operate(event){
                     }
                 break;
             case "two":
-                if(print.textContent.length < 12 && operator == undefined){
+                if(print.textContent.length < 12 && operator == undefined && percentOne == false){
                     print.textContent += 2;
+                }else if(percentOne && operator == undefined){
+                    print.textContent += 2;
+                    answer = Number(print.textContent);
                 }
                 if(operator != undefined && newNumber){
                     print.textContent = "";
@@ -57,8 +66,11 @@ function operate(event){
                 }
                 break;
             case "three":
-                if(print.textContent.length < 12 && operator == undefined){
+                if(print.textContent.length < 12 && operator == undefined && percentOne == false){
                     print.textContent += 3;
+                }else if(percentOne && operator == undefined){
+                    print.textContent += 3;
+                    answer = Number(print.textContent);
                 }
                 if(operator != undefined && newNumber){
                     print.textContent = "";
@@ -69,8 +81,11 @@ function operate(event){
                 }
                 break;
             case "four":
-                if(print.textContent.length < 12 && operator == undefined){
+                if(print.textContent.length < 12 && operator == undefined && percentOne == false){
                     print.textContent += 4;
+                }else if(percentOne && operator == undefined){
+                    print.textContent += 4;
+                    answer = Number(print.textContent);
                 }
                 if(operator != undefined && newNumber){
                     print.textContent = "";
@@ -81,8 +96,11 @@ function operate(event){
                 }
                 break;
             case "five":
-                if(print.textContent.length < 12 && operator == undefined){
+                if(print.textContent.length < 12 && operator == undefined && percentOne == false){
                     print.textContent += 5;
+                }else if(percentOne && operator == undefined){
+                    print.textContent += 5;
+                    answer = Number(print.textContent);
                 }
                 if(operator != undefined && newNumber){
                     print.textContent = "";
@@ -93,8 +111,11 @@ function operate(event){
                 }
                 break;
             case "six":
-                if(print.textContent.length < 12 && operator == undefined){
+                if(print.textContent.length < 12 && operator == undefined && percentOne == false){
                     print.textContent += 6;
+                }else if(percentOne && operator == undefined){
+                    print.textContent += 6;
+                    answer = Number(print.textContent);
                 }
                 if(operator != undefined && newNumber){
                     print.textContent = "";
@@ -105,8 +126,11 @@ function operate(event){
                 }
                 break;
             case "seven":
-                if(print.textContent.length < 12 && operator == undefined){
+                if(print.textContent.length < 12 && operator == undefined && percentOne == false){
                     print.textContent += 7;
+                }else if(percentOne && operator == undefined){
+                    print.textContent += 7;
+                    answer = Number(print.textContent);
                 }
                 if(operator != undefined && newNumber){
                     print.textContent = "";
@@ -117,8 +141,11 @@ function operate(event){
                 }
                 break;
             case "eight":
-                if(print.textContent.length < 12 && operator == undefined){
+                if(print.textContent.length < 12 && operator == undefined && percentOne == false){
                     print.textContent += 8;
+                }else if(percentOne && operator == undefined){
+                    print.textContent += 8;
+                    answer = Number(print.textContent);
                 }
                 if(operator != undefined && newNumber){
                     print.textContent = "";
@@ -129,8 +156,11 @@ function operate(event){
                 }
                 break;
             case "nine":
-                if(print.textContent.length < 12 && operator == undefined){
+                if(print.textContent.length < 12 && operator == undefined && percentOne == false){
                     print.textContent += 9;
+                }else if(percentOne && operator == undefined){
+                    print.textContent += 9;
+                    answer = Number(print.textContent);
                 }
                 if(operator != undefined && newNumber){
                     print.textContent = "";
@@ -141,8 +171,11 @@ function operate(event){
                 }
                 break;
             case "cero":
-                if(print.textContent.length < 12 && operator == undefined){
+                if(print.textContent.length < 12 && operator == undefined && percentOne == false){
                     print.textContent += 0;
+                }else if(percentOne && operator == undefined){
+                    print.textContent += 0;
+                    answer = Number(print.textContent);
                 }
                 if(operator != undefined && newNumber){
                     print.textContent = "";
@@ -267,6 +300,37 @@ function operate(event){
                 countDecimalSecond = 0;
                 countOperator++;
                 break;
+            case "percentage":
+                if(countOperator >= 1){
+                    switch (operator) {
+                        case "sum":
+                            answer = percentageSum();
+                            break;
+                        case "substraction":
+                            answer = percentageSum();
+                            break;
+                        case "multiplication":
+                            answer = percentageSecondNum();
+                            break;
+                        case "divide":
+                            answer = percentageSecondNum();
+                            break;
+                        default:
+                            break;
+                    }
+                    print.textContent = answer;
+                    percentTwo = true;
+                }else{
+                    answer = percentage();
+                    print.textContent = answer;
+                    firstNum = answer;
+                }
+                percentOne = true;
+                newNumber = true;
+                countOperator++;
+                countDecimal++;
+                countDecimalSecond++;
+                break;
             case "result":
                 switch (operator) {
                     case "sum":
@@ -310,6 +374,15 @@ function mult(){
 function division(){
     return firstNum / secondNum;
 }
+function percentage(){
+    return firstNum / 100;
+}
+function percentageSecondNum(){
+    return secondNum / 100;
+}
+function percentageSum(){
+    return firstNum * secondNum / 100;
+}
 
 numOne.addEventListener("click", operate);
 numTwo.addEventListener("click", operate);
@@ -327,3 +400,4 @@ sub.addEventListener("click", operate);
 multiply.addEventListener("click", operate);
 divide.addEventListener("click", operate);
 result.addEventListener("click", operate);
+percent.addEventListener("click", operate);
