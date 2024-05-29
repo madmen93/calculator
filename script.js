@@ -17,6 +17,7 @@ const multiply = document.querySelector("#multiplication");
 const divide = document.querySelector("#divide");
 const percent = document.querySelector("#percentage");
 const sumSubtraction = document.querySelector("#sumSus");
+const allClear = document.querySelector("#delete")
 
 let firstNum = 0;
 let operator;
@@ -339,6 +340,19 @@ function operate(event){
                 }
                 print.textContent = answer;
                 break;
+            case "delete":
+                print.textContent = "0";
+                firstNum = 0;
+                secondNum = 0;
+                countDecimal = 0;
+                countDecimalSecond = 0;
+                operator = undefined;
+                answer = undefined;
+                newNumber = true;
+                countOperator = 0;
+                percentOne = false;
+                percentTwo = false;
+                break;
             case "result":
                 switch (operator) {
                     case "sum":
@@ -416,3 +430,4 @@ divide.addEventListener("click", operate);
 result.addEventListener("click", operate);
 percent.addEventListener("click", operate);
 sumSubtraction.addEventListener("click",operate);
+allClear.addEventListener("click", operate);
