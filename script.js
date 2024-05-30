@@ -406,7 +406,10 @@ function mult(){
     return (firstNum * secondNum).toPrecision(10);
 }
 function division(){
-    return (firstNum / secondNum).toPrecision(10);
+    if(secondNum != 0)
+        return (firstNum / secondNum).toPrecision(10);
+    else
+        return "ERROR";
 }
 function percentage(){
     return firstNum / 100;
