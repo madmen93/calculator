@@ -397,18 +397,35 @@ function operate(event){
             secondNum = Number(print.textContent);
     }
 function add(){
-    return (firstNum + secondNum).toPrecision(10);
+    let result = firstNum + secondNum;
+    if(result.length > 12)
+        return result.toPrecision(10);
+    else
+        return result;
 }
 function subtract(){
-    return (firstNum - secondNum).toPrecision(10);
+    let result = firstNum - secondNum;
+    if(result.length > 12)
+        return result.toPrecision(10);
+    else
+        return result;
+    
 }
 function mult(){
-    return (firstNum * secondNum).toPrecision(10);
+    let result = firstNum * secondNum;
+    if(result.length > 12)
+        return result.toPrecision(10);
+    else
+        return result;
 }
 function division(){
-    if(secondNum != 0)
-        return (firstNum / secondNum).toPrecision(10);
-    else
+    let result = firstNum / secondNum;
+    if(secondNum != 0){
+        if(result.length > 12)
+            return result.toPrecision(10);
+        else
+            return result;
+    }else
         return "ERROR";
 }
 function percentage(){
@@ -418,7 +435,11 @@ function percentageSecondNum(){
     return secondNum / 100;
 }
 function percentageSum(){
-    return (firstNum * secondNum / 100).toPrecision(10);
+    let result = firstNum * secondNum / 100;
+    if(result.length > 12)
+        return result.toPrecision(10);
+    else
+        return result;
 }
 function sumSubFirst(){
     return firstNum * (-1);
