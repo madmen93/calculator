@@ -397,16 +397,16 @@ function operate(event){
             secondNum = Number(print.textContent);
     }
 function add(){
-    return firstNum + secondNum;
+    return (firstNum + secondNum).toPrecision(10);
 }
 function subtract(){
-    return firstNum - secondNum;
+    return (firstNum - secondNum).toPrecision(10);
 }
 function mult(){
-    return firstNum * secondNum;
+    return (firstNum * secondNum).toPrecision(10);
 }
 function division(){
-    return firstNum / secondNum;
+    return (firstNum / secondNum).toPrecision(10);
 }
 function percentage(){
     return firstNum / 100;
@@ -415,7 +415,7 @@ function percentageSecondNum(){
     return secondNum / 100;
 }
 function percentageSum(){
-    return firstNum * secondNum / 100;
+    return (firstNum * secondNum / 100).toPrecision(10);
 }
 function sumSubFirst(){
     return firstNum * (-1);
