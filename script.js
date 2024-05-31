@@ -12,7 +12,7 @@ const numCero = document.querySelector("#cero");
 const point = document.querySelector("#decimal");
 const result = document.querySelector("#result");
 const sum = document.querySelector("#sum");
-const sub = document.querySelector("#substraction");
+const sub = document.querySelector("#subtraction");
 const multiply = document.querySelector("#multiplication");
 const divide = document.querySelector("#divide");
 const percent = document.querySelector("#percentage");
@@ -208,7 +208,7 @@ function operate(event){
                         case "sum":
                             answer = add();
                             break;
-                        case "substraction":
+                        case "subtraction":
                             answer = subtract();
                             break;
                         case "multiplication":
@@ -227,13 +227,13 @@ function operate(event){
                 countDecimalSecond = 0;
                 countOperator++;
                 break;
-            case "substraction":
+            case "subtraction":
                 if(countOperator >= 1){
                     switch (operator) {
                         case "sum":
                             answer = add();
                             break;
-                        case "substraction":
+                        case "subtraction":
                             answer = subtract();
                             break;
                         case "multiplication":
@@ -247,7 +247,7 @@ function operate(event){
                     print.textContent = answer;
                     firstNum = answer;
                 }
-                operator = "substraction";
+                operator = "subtraction";
                 newNumber = true;
                 countDecimalSecond = 0;
                 countOperator++;
@@ -258,7 +258,7 @@ function operate(event){
                         case "sum":
                             answer = add();
                             break;
-                        case "substraction":
+                        case "subtraction":
                             answer = subtract();
                             break;
                         case "multiplication":
@@ -283,7 +283,7 @@ function operate(event){
                         case "sum":
                             answer = add();
                             break;
-                        case "substraction":
+                        case "subtraction":
                             answer = subtract();
                             break;
                         case "multiplication":
@@ -308,7 +308,7 @@ function operate(event){
                         case "sum":
                             answer = percentageSum();
                             break;
-                        case "substraction":
+                        case "subtraction":
                             answer = percentageSum();
                             break;
                         case "multiplication":
@@ -370,7 +370,7 @@ function operate(event){
                     case "sum":
                         answer = add();
                         break;
-                    case "substraction":
+                    case "subtraction":
                         answer = subtract();
                         break;
                     case "multiplication":
