@@ -449,6 +449,35 @@ function sumSubSecond(){
     return secondNum * (-1);
 }
 
+//Keyboard support:
+document.addEventListener("keydown", function(event){
+    if(event.key == 1)
+        numOne.click();
+    if(event.key == 2)
+        numTwo.click();
+    if(event.key == 3)
+        numThree.click();
+    if(event.key == 4)
+        numFour.click();
+    if(event.key == 5)
+        numFive.click();
+    if(event.key == 6)
+        numSix.click();
+    if(event.key == 7)
+        numSeven.click();
+    if(event.key == 8)
+        numEight.click();
+    if(event.key == 9)
+        numNine.click();
+    if(event.key == 0)
+        numCero.click();
+    if(event.key == ".")
+        point.click();
+    if(event.key == "Backspace")
+        backspace.click();
+})
+
+
 numOne.addEventListener("click", operate);
 numTwo.addEventListener("click", operate);
 numThree.addEventListener("click", operate);
