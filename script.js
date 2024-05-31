@@ -23,7 +23,7 @@ const backspace = document.querySelector("#undo");
 let firstNum = 0;
 let operator;
 let secondNum = 0;
-let answer;
+let answer = 0;
 let countDecimal = 0;
 let countDecimalSecond = 0;
 let newNumber = true;
@@ -395,6 +395,8 @@ function operate(event){
             firstNum = Number(print.textContent);
         else
             secondNum = Number(print.textContent);
+        if(print.textContent == "")
+            print.textContent = 0;
     }
 function add(){
     let result = firstNum + secondNum;
@@ -409,7 +411,6 @@ function subtract(){
         return result.toPrecision(10);
     else
         return result;
-    
 }
 function mult(){
     let result = firstNum * secondNum;
